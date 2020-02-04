@@ -1,0 +1,72 @@
+
+.createFolderButton{
+    /* padding: 5px 30px; */
+	background: #3f4257;
+	/* border-radius: 30px; */
+	color: white;
+	font-weight: 700;
+    font-size: 20px;
+	margin:10px;
+	cursor: pointer;
+	outline: none;
+    border: none;
+    position: relative;
+}
+
+.createFolderButton:hover{
+    background: rgb(111, 201, 83);
+    color: #0a0a0e;
+}
+
+.displayFolder{
+    display: flex;
+    flex-direction:row;
+    overflow: hidden;
+    position: relative;
+    background-color: rgb(243, 243, 243);
+    padding: 10px;
+    
+}
+.inputArea{
+    width: 75%;
+    border: 3px solid #3f4257;
+    margin:10px;
+    border-radius: 5px;
+    font-size: 20px;
+    height: 100%;
+    align-content: center;
+    position: relative;
+}
+
+.folderArea{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: rgb(255, 255, 255);
+}
+
+.Folderss{
+    padding: 50px;
+    color: rgb(0, 0, 0);
+    background-image: url("../pic/folder.jpg");
+    background-size: cover;
+    background-position: center;
+	font-weight: 700;
+	font-size: 25px;
+	margin: 10px 10px;
+	cursor: pointer;
+    position: relative;
+}
+
+.Folderss:hover{
+    color: #eaeaee;
+}
+
+.GalleryDisplay{
+    display: flex;
+    justify-content: space-between;
+}
+
+.a{
+    width:50%;
+}

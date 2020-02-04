@@ -1,0 +1,9 @@
+.App {
+  background-color: #000000;
+  position: relative;
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  color: rgb(30, 85, 136);
+}
+
