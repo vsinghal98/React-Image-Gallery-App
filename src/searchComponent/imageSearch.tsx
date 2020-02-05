@@ -11,27 +11,48 @@ interface searchprops {
   componentToggler: (val: string) => void;
 }
 
+const SEARCH_KEY = "SEARCH_KEY";
+
 export default class Search extends React.Component<searchprops, searchState> {
   constructor(props: searchprops) {
     super(props);
-    this.state = {
-      searchedImages: [],
-      searchItem: ""
-    };
+    const currentStateString = localStorage.getItem(SEARCH_KEY);
+    let currentState: searchState;
+    if (currentStateString) {
+      currentState = JSON.parse(currentStateString);
+      this.state = {
+        searchedImages: currentState.searchedImages,
+        searchItem: currentState.searchItem
+      };
+    } else {
+      this.state = {
+        searchedImages: [],
+        searchItem: ""
+      };
+      localStorage.setItem(SEARCH_KEY, JSON.stringify(this.state));
+    }
   }
 
   performAction(input: React.ChangeEvent<HTMLInputElement>) {
-    const inputValue = input.currentTarget.value;
-    this.props.componentToggler(inputValue);
-    this.setState(()=>{return{
-      searchItem: inputValue
-    }});
-    let searchedImages = this.props.myImages.filter(images =>
-      images.startsWith(inputValue)
-    );
-    this.setState(()=>{return {
-      searchedImages: searchedImages
-    }});
+    const currentStateString = localStorage.getItem(SEARCH_KEY);
+    let currentState: searchState;
+    if (currentStateString) {
+      currentState = JSON.parse(currentStateString);
+      const inputValue = input.currentTarget.value;
+      this.props.componentToggler(inputValue);
+      let searchedImages = this.props.myImages.filter(images =>
+        images.startsWith(inputValue)
+      );
+      currentState.searchedImages = searchedImages;
+      currentState.searchItem = inputValue;
+      localStorage.setItem(SEARCH_KEY, JSON.stringify(currentState));
+      this.setState(() => {
+        return {
+          searchItem: inputValue,
+          searchedImages: searchedImages
+        };
+      });
+    }
   }
 
   showImages() {

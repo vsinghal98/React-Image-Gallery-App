@@ -36,5 +36,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/vsinghal98/React-Image-Gallery-App.git",
+  "author": "Vipul Singhal <visinghal@sumologic.com>",
+  "license": "MIT"
 }
